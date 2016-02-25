@@ -12,9 +12,9 @@ pearson_r <- cor(data_set, method = "pearson") #correlates variables for pearson
 pearson_r[col(pearson_r) == row(pearson_r) | upper.tri(pearson_r)] <- NA #identifying duplicate pairs and value as NA
 pearson_r <- subset(as.data.frame.table(pearson_r), !is.na(Freq)) #excluding NA values from output
 colnames(pearson_r) <- c("X","Y", "Pearson's 'r'") #relabels columns
-paste(pearson_r[1], pearson_r[2], sep = "-", collapse = FALSE) #combine X & Y, creating hyphenated label
-print(pearson_r)
-
+#pearson_output <- paste(pearson_r[1], pearson_r[2], sep = "-", collapse = FALSE) #combine X & Y, creating hyphenated label
+print(pearson_r) #running this one for now because pearson_output isn't working right
+#print(pearson_output) #commented out because not working right. attempting to fix.
 
 #3 #create and label a scatterplot for every pair of numeric variables
   #add a title that contains the 'r' of the pair
