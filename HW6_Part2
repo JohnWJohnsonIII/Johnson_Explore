@@ -1,0 +1,22 @@
+#HW6--PART 2
+
+#1
+extracted_data <- which(sapply(diamonds, is.numeric))
+extracted_data_frame <- diamonds[extracted_data]
+#print(extracted_data_frame)
+
+#2
+#column containing names of each variable separated by '-'
+data_set <- data.frame(extracted_data_frame)
+pearson_r <- cor(data_set, method = "pearson") #correlates variables for pearson's r
+pearson_r[col(pearson_r) == row(pearson_r) | upper.tri(pearson_r)] <- NA #identifying duplicate pairs and value as NA
+pearson_r <- subset(as.data.frame.table(pearson_r), !is.na(Freq)) #excluding NA values from output
+colnames(pearson_r) <- c("X","Y", "Pearson's 'r'") #relabels columns
+paste(pearson_r[1], pearson_r[2], sep = "-", collapse = FALSE) #combine X & Y, creating hyphenated label
+print(pearson_r)
+
+
+#3 #create and label a scatterplot for every pair of numeric variables
+  #add a title that contains the 'r' of the pair
+ggpairs(extracted_data_frame) #builds a scatterplot matrix of all variables in the data frame. #extracted_data_frame is the numeric data pulled in #1
+#also returns pearson's r of each pair
