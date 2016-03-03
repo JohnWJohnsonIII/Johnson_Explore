@@ -62,7 +62,7 @@ cat_var_plot <- function(data) {
       cat_vars[i] <- data[i]
     } else {
       data[i] <- NA
-  }
+  }}
   var_plot <- ggplot2(cat_vars, x = cat_vars[i])
   var_plot <- var_plot + geom_bar(aes(fill= 'gray'))
 }
@@ -83,6 +83,7 @@ return(r_squared)
 
 r_squared(diamonds) 
 
+
 #4 All items returned in an R list
 
 #4a #frequency table for every categorical and binary variable
@@ -97,6 +98,7 @@ freq_table <- function(data){
  }
 }
 freq_table(diamonds)
+
 
 #4bi
 sum_stats <- function(data){ #not looping through all numeric variables
