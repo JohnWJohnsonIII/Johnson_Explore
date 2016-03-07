@@ -1,5 +1,7 @@
 #Homework 7
 
+##Prof G: Please submit a completed assignment
+
 explore <-function(data, vect, min_cor) {
     #function1
     #function2
